@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 const props = defineProps({
   results: Array,
   totalCorrect: Number,
@@ -8,7 +8,7 @@ const props = defineProps({
 const resultIndex = computed(() => {
   let index = 0;
   props.results.forEach((e, i) => {
-    if (e.min <= props.totalCorrect.value && e.max >= props.totalCorrect.value) {
+    if (e.min <= props.totalCorrect && e.max >= props.totalCorrect) {
       index = i;
     }
   });

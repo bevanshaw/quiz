@@ -87,7 +87,7 @@ const questionAnswered = (is_correct) => {
   }
   questionsAnswered.value++;
 };
-const resetQuiz = () => {
+const reset = () => {
   totalCorrect.value = 0;
   questionsAnswered.value = 0;
 };
@@ -95,15 +95,22 @@ const resetQuiz = () => {
 
 <template>
   <div class="ctr">
-    <questions
-      v-if="questionsAnswered < data.questions.length"
-      :questions="data.questions"
-      :questionsAnswered="questionsAnswered"
-      @question-answered="questionAnswered"
-      :totalCorrect="totalCorrect"
-    />
-    <result v-else :results="data.results" :totalCorrect="totalCorrect" />
-    <button type="button" class="reset-btn" @click.prevent="resetQuiz">
+    <transition name="fade" mode="out-in">
+      <questions
+        v-if="questionsAnswered < data.questions.length"
+        :questions="data.questions"
+        :questionsAnswered="questionsAnswered"
+        @question-answered="questionAnswered"
+        :totalCorrect="totalCorrect"
+      />
+      <result v-else :results="data.results" :totalCorrect="totalCorrect" />
+    </transition>
+    <button
+      type="button"
+      class="reset-btn"
+      @click.prevent="reset"
+      v-if="questionsAnswered === data.questions.length"
+    >
       Reset
     </button>
   </div>
