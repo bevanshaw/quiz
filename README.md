@@ -1,6 +1,6 @@
 # quiz
 
-A small quiz app written using the Composition API. Learning about transitions and practicing syntax. 
+A small quiz app written using the Composition API. 
 
 ## Recommended IDE Setup
 
