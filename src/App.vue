@@ -105,14 +105,16 @@ const reset = () => {
       />
       <result v-else :results="data.results" :totalCorrect="totalCorrect" />
     </transition>
-    <button
-      type="button"
-      class="reset-btn"
-      @click.prevent="reset"
-      v-if="questionsAnswered === data.questions.length"
-    >
-      Reset
-    </button>
+    <transition-group name="delay">
+      <button
+        type="button"
+        class="reset-btn"
+        @click.prevent="reset"
+        v-if="questionsAnswered === data.questions.length"
+      >
+        Reset
+      </button>
+    </transition-group>
   </div>
 </template>
 
