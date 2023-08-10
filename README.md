@@ -1,6 +1,6 @@
 # quiz
 
-This template should help get you started developing with Vue 3 in Vite.
+A small quiz app written using the Composition API. Learning about transitions and practicing syntax. 
 
 ## Recommended IDE Setup
 
